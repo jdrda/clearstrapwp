@@ -22,10 +22,9 @@ register_nav_menus( array(
  * Register JS 
  */
 function wpt_register_js() {
-    wp_register_script('jquery.min', get_template_directory_uri() . '/vendor/jquery/dist/jquery.min.js');
-    wp_register_script('bootstrap.min', get_template_directory_uri() . '/vendor/bootstrap/dist/js/bootstrap.min.js');
-    wp_enqueue_script('jquery.min');
-    wp_enqueue_script('bootstrap.min');
+    wp_register_script('bootstrap', get_template_directory_uri() . '/vendor/bootstrap/dist/js/bootstrap.min.js', array(), NULL);
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('bootstrap');
 }
 add_action( 'init', 'wpt_register_js' );
 
@@ -33,8 +32,8 @@ add_action( 'init', 'wpt_register_js' );
  * Register CSS
  */
 function wpt_register_css() {
-    wp_register_style( 'bootstrap.min', get_template_directory_uri() . '/vendor/bootstrap/dist/css/bootstrap.min.css' );
-    wp_enqueue_style( 'bootstrap.min' );
+    wp_register_style( 'bootstrap', get_template_directory_uri() . '/vendor/bootstrap/dist/css/bootstrap.min.css', array(), NULL);
+    wp_enqueue_style( 'bootstrap' );
 }
 add_action( 'wp_enqueue_scripts', 'wpt_register_css' );
         
