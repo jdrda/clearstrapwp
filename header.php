@@ -40,12 +40,15 @@
           <div class="collapse navbar-collapse navbar-ex1-collapse"> 
             <?php /* Primary navigation */
             wp_nav_menu( array(
-              'menu' => 'top_menu',
-              'depth' => 2,
-              'container' => false,
-              'menu_class' => 'nav navbar-nav',
-              //Process nav menu using our custom nav walker
-              'walker' => new wp_bootstrap_navwalker())
+                'menu'              => 'primary',
+                'theme_location'    => 'primary',
+                'depth'             => 2,
+                'container'         => 'div',
+                'container_class'   => 'collapse navbar-collapse',
+                'container_id'      => 'bs-example-navbar-collapse-1',
+                'menu_class'        => 'nav navbar-nav',
+                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                'walker'            => new wp_bootstrap_navwalker())
             );
             ?>
           </div>

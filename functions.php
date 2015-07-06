@@ -10,13 +10,13 @@
  * @since ClearstrapWP 0.1
  */
 
+// Register custom navigation walker
+require_once('wp_bootstrap_navwalker.php');
 
 /* Theme setup */
-add_action( 'after_setup_theme', 'wpt_setup' );
-    if ( ! function_exists( 'wpt_setup' ) ):
-        function wpt_setup() {  
-            register_nav_menu( 'primary', __( 'Primary navigation', 'wptuts' ) );
-        } endif;      
+register_nav_menus( array(
+    'primary' => __( 'Primary Menu'),
+) );      
         
 /**
  * Register JS 
@@ -38,8 +38,7 @@ function wpt_register_css() {
 }
 add_action( 'wp_enqueue_scripts', 'wpt_register_css' );
         
-// Register custom navigation walker
-require_once('wp_bootstrap_navwalker.php');
+
 
 // Register two sidebards
 if ( function_exists ('register_sidebar')) { 
